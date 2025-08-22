@@ -5,7 +5,6 @@ import cors from "cors";
 import session from "express-session";
 import MongoStore from "connect-mongo";
 import passport from "passport";
-
 import productRoutes from "./routes.js";
 import authRoutes from "./auth.js";
 import configurePassport from "./config/passport.js";
@@ -17,7 +16,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: "https://quickmartproject.onrender.com",
   credentials: true,
 }));
 

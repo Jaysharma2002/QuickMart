@@ -10,11 +10,11 @@ router.get("/google", passport.authenticate("google", { scope: ["profile", "emai
 // Google callback
 router.get(
   "/google/callback",
-  passport.authenticate("google", { failureRedirect: "http://localhost:5173/" }),
+  passport.authenticate("google", { failureRedirect: "https://quickmartproject.onrender.com/" }),
   (req, res) => {
     req.session.userId = req.user._id;
     req.session.save(() => {
-      res.redirect("http://localhost:5173/home");
+      res.redirect("https://quickmartproject.onrender.com/home");
     });
   }
 );
