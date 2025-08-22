@@ -236,35 +236,35 @@
 }
 @media only screen and (max-width:900px){
     .card{
-        zoom:0.7
+        transform:scale(0.7)
     }
     .content{
-        zoom:0.7
+        transform:scale(0.7)
     }
     .next,.prev{
-        zoom:0.7
+        transform:scale(0.7)
     }
 }
 @media only screen and (max-width:565px){
     .card{
-            zoom:0.5;
+            transform:scale(0.5)
         }
     .content{
-        zoom:0.5 !important
+        transform:scale(0.5) !important
     }
     .next,.prev{
-        zoom:0.5
+        transform:scale(0.5)
     }
     
 }
 @media only screen and (max-width:700px)
 {
     .content{
-        zoom:0.6
+        transform:scale(0.6)
     }
     .card{
         padding:20px 0px;
-        zoom:0.6
+        transform:scale(0.6)
     }
     .card{
         width:280px;
@@ -275,7 +275,7 @@
         height: 250px;
     }
     .next,.prev{
-        zoom:0.6
+        transform:scale(0.6)
     }
 
 }
