@@ -5,7 +5,7 @@ import cors from "cors";
 import session from "express-session";
 import MongoStore from "connect-mongo";
 import passport from "passport";
-import productRoutes from "./routes.js";
+import route from "./routes.js";
 import authRoutes from "./auth.js";
 import configurePassport from "./config/passport.js";
 
@@ -43,7 +43,7 @@ configurePassport();
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use("/api/product", productRoutes);
+app.use("/api/product", route);
 app.use("/auth", authRoutes);
 
 mongoose.connect(process.env.MONGO_URL)
