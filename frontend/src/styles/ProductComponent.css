@@ -217,12 +217,10 @@
 }
 @media (max-width: 1200px) {
   .product {
-    width: 95%;
     gap: 16px;
     padding: 18px;
   }
   .productimages img {
-    width: 380px;
     max-height: 420px;
   }
   .productdetails {
@@ -243,10 +241,10 @@
     gap: 16px;
   }
   .productimages img {
-    width: 340px;
     max-height: 380px;
   }
   .productdetails {
+    align-items:normal ;
     width: 55%;
     font-size: 17px;
   }
@@ -255,6 +253,9 @@
   }
   .reviews-title {
     font-size: 22px;
+  }
+  .productimages{
+    background-color: white;
   }
 }
 
@@ -278,14 +279,11 @@
     width: 100%;
   }
   .productimages img {
-    width: 100%;
     max-height: 360px;
-    object-fit: cover;
   }
 
   .productdetails {
     width: 100%;
-    font-size: 16px;
     padding-right: 0;
   }
   .description {
@@ -340,7 +338,6 @@
   .product {
     padding: 14px;
     gap: 12px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.12);
   }
 
   .productimages img {
@@ -388,7 +385,6 @@
 /* --- Small phones --- */
 @media (max-width: 400px) {
   .product {
-    width: 100%;
     border-radius: 8px;
     padding: 12px;
   }
