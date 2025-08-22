@@ -9,7 +9,7 @@ import YearlyEarning from "./YearlyEarning";
 import RecentOrders from "./RecentOrders";
 import OrderStatus from "./OrderStatus";
 import UserGrowth from "./UserGrowth";
-import "../../styles/AdminDashBoard.css"
+import "../../styles/AdminDashborad.css"
 import SalesCategory from "./SalesCategory";
 import { useloader } from "../../context/ContextLoader";
 import UniversalLoader from "../UniversalLoader";
