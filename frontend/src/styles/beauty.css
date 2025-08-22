@@ -208,31 +208,90 @@
 /* =========================================================
    8) Carousel controls
    ========================================================= */
+/* ===== Carousel Container ===== */
+.image-container {
+  position: relative;
+  width: 100%;
+  max-width: 1400px; /* keeps banner not too stretched on large screens */
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+
+  /* Safe-area support for notch/dynamic island */
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+.image-container.hidden {
+  display: none;
+}
+
+.image-container.visible {
+  display: block;
+}
+
+/* ===== Carousel Wrapper ===== */
+.carousel-wrapper {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ===== Slide Image ===== */
+.slideimage {
+  width: 100%;
+  height: auto;
+  max-height: 450px; /* keeps banners from being too tall */
+  object-fit: cover;
+  border-radius: 20px;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Fade-in animation */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.8s forwards;
+}
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* ===== Navigation Buttons ===== */
 .prev, .next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  border: 0;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.75);
-  padding: clamp(6px, 1.5vw, 10px);
-  min-width: 36px;                 /* finger-friendly */
-  min-height: 36px;
+  background: rgba(255, 255, 255, 0.7);
+  border: none;
+  font-size: 28px;
   cursor: pointer;
   z-index: 2;
-  transition: background .2s ease, transform .2s ease;
-  box-shadow: var(--shadow-sm);
+  padding: 12px 18px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
 }
 
-.prev { left: var(--space-3); }
-.next { right: var(--space-3); }
-
-@media (hover: hover) {
-  .prev:hover, .next:hover {
-    background: rgba(255,255,255,0.92);
-    transform: translateY(-50%) scale(1.05);
-  }
+/* Button hover */
+.prev:hover, .next:hover {
+  background: rgba(255, 255, 255, 0.9);
+  transform: translateY(-50%) scale(1.1);
 }
+
+/* Button positions */
+.prev {
+  left: calc(10px + env(safe-area-inset-left));
+}
+.next {
+  right: calc(10px + env(safe-area-inset-right));
+}
+
 
 /* =========================================================
    9) Empty state / tagline
@@ -296,7 +355,13 @@
 @media (min-width: 1024px) and (max-width: 1439px) {
   .content { gap: var(--space-6); }
   .img-container { height: clamp(240px, 26vh, 300px); }
-  .desc { -webkit-line-clamp: 2; }
+  .desc { -webkit-line-clamp: 2; }.slideimage {
+    max-height: 350px;
+  }
+  .prev, .next {
+    font-size: 24px;
+    padding: 10px 14px;
+  }
 }
 
 /* Desktops (>= 1440px): roomy layout */
@@ -304,4 +369,22 @@
   .content { gap: 32px; }
   .img-container { height: clamp(260px, 24vh, 320px); }
   .desc { -webkit-line-clamp: 2; }
+}
+@media (max-width: 768px) {
+  .slideimage {
+    max-height: 280px;
+  }
+  .prev, .next {
+    font-size: 20px;
+    padding: 8px 12px;
+  }
+}@media (max-width: 480px) {
+  .slideimage {
+    max-height: 220px;
+    border-radius: 12px;
+  }
+  .prev, .next {
+    font-size: 18px;
+    padding: 6px 10px;
+  }
 }
