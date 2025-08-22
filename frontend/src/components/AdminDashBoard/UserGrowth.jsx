@@ -11,7 +11,7 @@ const UserGrowth = () => {
     const fetchData = async () => {
       startloading();
       try {
-        const res = await axios.get("http://localhost:8000/api/product/usergrowthbymonth");
+        const res = await axios.get("https://quickmartproject-backend.onrender.com/api/product/usergrowthbymonth");
       setData(res.data.result);
       } catch (err) {
         console.error("Failed to fetch sales analytics:", err);

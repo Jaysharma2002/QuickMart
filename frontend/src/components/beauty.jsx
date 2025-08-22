@@ -20,7 +20,7 @@ function Beauty({selectedcategory,setProducts,searchedProduct,setAddedtocart,add
         const debounce=setTimeout(()=>{
             const fetch=async()=>{
                 setLoading(true)
-            await axios.get("http://localhost:8000/api/product/fetch").then((response) => {
+            await axios.get("https://quickmartproject-backend.onrender.com/api/product/fetch").then((response) => {
                 const products=response.data
                 const filteredItems =products.filter((item)=>{
                     const categoryfiltereditem=selectedcategory?.toLowerCase()==="all" || item.category.toLowerCase()===selectedcategory.toLowerCase()

@@ -74,7 +74,7 @@ function AdminContent({selectedCategory,searchProduct,outOfStock}){
     const fetch=async()=>{
             try {
                 startloading() 
-            await axios.get("http://localhost:8000/api/product/fetch").then((response)=>{
+            await axios.get("https://quickmartproject-backend.onrender.com/api/product/fetch").then((response)=>{
                 const products=response.data
                 const filteredItems=products.filter((item)=>{
                 const selectedfiltereditems=selectedCategory?.toLowerCase()==="all" || item.category.toLowerCase()===selectedCategory.toLowerCase()
@@ -102,7 +102,7 @@ function AdminContent({selectedCategory,searchProduct,outOfStock}){
 }
 
     const AddProduct=async()=>{
-        await axios.post("http://localhost:8000/api/product/create",{
+        await axios.post("https://quickmartproject-backend.onrender.com/api/product/create",{
             images: newProduct.images || [],
             title:newProduct.title,
             description:newProduct.description,
@@ -143,7 +143,7 @@ function AdminContent({selectedCategory,searchProduct,outOfStock}){
         return;
     }
 
-    const response = await axios.put(`http://localhost:8000/api/product/update/${isEdit}`, {
+    const response = await axios.put(`https://quickmartproject-backend.onrender.com/api/product/update/${isEdit}`, {
         title: newProduct.title,
         images: newProduct.images || [],
         description: newProduct.description,
@@ -179,7 +179,7 @@ function AdminContent({selectedCategory,searchProduct,outOfStock}){
 
 
     const handleDelete=async(id)=>{
-        await axios.delete(`http://localhost:8000/api/product/delete/${id}`)
+        await axios.delete(`https://quickmartproject-backend.onrender.com/api/product/delete/${id}`)
         setProducts((prev)=>{return prev.filter((product)=>product._id!==id)})
     }
 

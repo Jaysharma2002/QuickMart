@@ -10,7 +10,7 @@ const SalesAnalytics = () => {
   const fetch=async()=>{
     startloading();
     try {
-      const res = await axios.get("http://localhost:8000/api/product/salesanalytics");
+      const res = await axios.get("https://quickmartproject-backend.onrender.com/api/product/salesanalytics");
       setData(res.data);
     } catch (err) {
       console.error("Failed to fetch sales analytics:", err);

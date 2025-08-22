@@ -12,7 +12,7 @@ function OutOfStock({setOutOfStock,outOfStock}){
     const fetch=async()=>{
         startloading();
       try {
-        const res = await axios.get("http://localhost:8000/api/product/outofstockcount");
+        const res = await axios.get("https://quickmartproject-backend.onrender.com/api/product/outofstockcount");
         setOutofStockCount(res.data.count);
       } catch (err) {
         console.error("Failed to fetch sales analytics:", err);

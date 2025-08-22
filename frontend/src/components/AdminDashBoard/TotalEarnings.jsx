@@ -10,7 +10,7 @@ function TotalEarnings(){
     const fetch=async()=>{
         startloading();
       try {
-        const res=await axios.get("http://localhost:8000/api/product/totalearning")
+        const res=await axios.get("https://quickmartproject-backend.onrender.com/api/product/totalearning")
         setTotalEarning(res.data.total)
       } catch (err) {
         console.error("Failed to fetch sales analytics:", err);

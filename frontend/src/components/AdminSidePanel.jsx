@@ -13,7 +13,7 @@ const AdminSidePanel = forwardRef(function AdminSidePanel(
 
   useEffect(() => {
     const fetch = async () => {
-      const res = await axios.get("http://localhost:8000/api/product/fetchcategory");
+      const res = await axios.get("https://quickmartproject-backend.onrender.com/api/product/fetchcategory");
       setCategories(res.data.result);
     };
     fetch();

@@ -19,7 +19,7 @@ function OrderStatus(){
     const fetch=async()=>{
         startloading();
       try {
-        const res = await axios.get("http://localhost:8000/api/product/deliverystatus");
+        const res = await axios.get("https://quickmartproject-backend.onrender.com/api/product/deliverystatus");
         setData(res.data.result);
       } catch (err) {
         console.error("Failed to fetch sales analytics:", err);

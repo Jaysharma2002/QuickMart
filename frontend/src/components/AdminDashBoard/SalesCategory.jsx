@@ -17,7 +17,7 @@ function SalesCategory(){
     const fetch=async()=>{
         startloading();
       try {
-        const res = await axios.get("http://localhost:8000/api/product/salesbycategory");
+        const res = await axios.get("https://quickmartproject-backend.onrender.com/api/product/salesbycategory");
         setData(res.data.result);
       } catch (err) {
         console.error("Failed to fetch sales analytics:", err);

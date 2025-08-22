@@ -10,7 +10,7 @@ function TotalUsers(){
     const fetch=async()=>{
         startloading();
       try {
-        const res=await axios.get("http://localhost:8000/api/product/usercount")
+        const res=await axios.get("https://quickmartproject-backend.onrender.com/api/product/usercount")
         setUserCount(res.data.count)
       } catch (err) {
         console.error("Failed to fetch sales analytics:", err);

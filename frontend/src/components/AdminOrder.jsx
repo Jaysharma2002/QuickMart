@@ -18,7 +18,7 @@ function AdminOrder({todayOrder}){
         const fetch=async()=>{
             try{
                 startloading()
-                const response=await axios.get('http://localhost:8000/api/product/getorder')
+                const response=await axios.get('https://quickmartproject-backend.onrender.com/api/product/getorder')
                 setFilteredOrders(response.data)
                 setOrder(response.data)  
             }
@@ -50,7 +50,7 @@ function AdminOrder({todayOrder}){
         if(selectedOrders && updateButton)
         {
             const fetch=async()=>{
-                const response=await axios.put('http://localhost:8000/api/product/updatestatus',{selectedOrders:selectedOrders,changeOption:{orderStatus:changeOption}})
+                const response=await axios.put('https://quickmartproject-backend.onrender.com/api/product/updatestatus',{selectedOrders:selectedOrders,changeOption:{orderStatus:changeOption}})
                 setFilteredOrders((prevOrders)=>
                     prevOrders.map((order)=>
                         response.data.find((updateOrder)=>updateOrder._id===order._id) || order

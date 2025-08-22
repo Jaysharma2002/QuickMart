@@ -27,7 +27,7 @@ function Cart({ product,setProducts,setAddedtocart,addedToCart}) {
     useEffect(()=>{
         window.scrollTo(0,0)
         const fetch=async()=>{
-            const response=await axios.post("http://localhost:8000/api/product/getaddress",{},{withCredentials:true})
+            const response=await axios.post("https://quickmartproject-backend.onrender.com/api/product/getaddress",{},{withCredentials:true})
             setEditData({
                 address:response.data.address || '',
                 phone:response.data.phone || ''
@@ -51,7 +51,7 @@ function Cart({ product,setProducts,setAddedtocart,addedToCart}) {
     }
 
     const submit=async()=>{
-        const response=await axios.put("http://localhost:8000/api/product/updateaddress",editData,{withCredentials:true})
+        const response=await axios.put("https://quickmartproject-backend.onrender.com/api/product/updateaddress",editData,{withCredentials:true})
         setEditData({
             address:response.data.address,
             phone:response.data.phone
@@ -73,7 +73,7 @@ function Cart({ product,setProducts,setAddedtocart,addedToCart}) {
     const Payment=async()=>{
         
         if(editData.address!=='' && editData.phone!==''){
-        const response = await fetch('http://localhost:8000/api/product/payment', {
+        const response = await fetch('https://quickmartproject-backend.onrender.com/api/product/payment', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
@@ -101,7 +101,7 @@ function Cart({ product,setProducts,setAddedtocart,addedToCart}) {
         handler:async function(){
             try{
                 navigate("/home")
-                axios.post('http://localhost:8000/api/product/order',{products:product},{withCredentials:true})
+                axios.post('https://quickmartproject-backend.onrender.com/api/product/order',{products:product},{withCredentials:true})
                 setProducts([])
                 setAddedtocart(0)
             }

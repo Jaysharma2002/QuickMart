@@ -23,7 +23,7 @@ function UserProfile({setProfileUpdate})
         const fetch=async()=>{
           try{
             startloading()
-            const response=await axios.post("http://localhost:8000/api/product/userprofile",{},{withCredentials:true})
+            const response=await axios.post("https://quickmartproject-backend.onrender.com/api/product/userprofile",{},{withCredentials:true})
             setEditData({
                 profileimage:response.data.profileimage || '',
                 name:response.data.name || '',
@@ -60,7 +60,7 @@ function UserProfile({setProfileUpdate})
         formdata.append("phone",editData.phone)
         formdata.append("gender",editData.gender)
         formdata.append("age",editData.age)
-        const response=await axios.post("http://localhost:8000/api/product/updateprofile",formdata,{withCredentials:true,headers:{"Content-Type":"multipart/form-data"}})
+        const response=await axios.post("https://quickmartproject-backend.onrender.com/api/product/updateprofile",formdata,{withCredentials:true,headers:{"Content-Type":"multipart/form-data"}})
         setEditData({
             profileimage:response.data.profileimage || '',
             name:response.data.name || '',

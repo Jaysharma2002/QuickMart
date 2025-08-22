@@ -30,7 +30,7 @@ export default function Register() {
     setSubmitting(true);
     setError("");
     try {
-      const res = await axios.post("http://localhost:8000/api/product/createuser", {
+      const res = await axios.post("https://quickmartproject-backend.onrender.com/api/product/createuser", {
         name,
         email,
         password,

@@ -16,7 +16,7 @@ function Login({ setUserId }) {
   function usersignin() {
     axios
       .post(
-        "http://localhost:8000/api/product/signin",
+        "https://quickmartproject-backend.onrender.com/api/product/signin",
         { email, password },
         { withCredentials: true }
       )
@@ -44,7 +44,7 @@ function Login({ setUserId }) {
   }
 
   useEffect(() => {
-  axios.get("http://localhost:8000/api/product/userprofile", { withCredentials: true })
+  axios.get("https://quickmartproject-backend.onrender.com/api/product/userprofile", { withCredentials: true })
     .then(res => {
       if (res.data?.user) {
         setUserId(res.data.user._id);
@@ -116,7 +116,7 @@ function Login({ setUserId }) {
               </div>
 
               <div className="actions">
-                <button  type="button" className="btn google" onClick={() => window.location.href = "http://localhost:8000/auth/google"}>
+                <button  type="button" className="btn google" onClick={() => window.location.href = "https://quickmartproject-backend.onrender.com/auth/google"}>
                   <i className="fa-brands fa-google"></i> Sign in with Google
                 </button>
                 <button type="button" className="btn ghost" onClick={register}>

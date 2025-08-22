@@ -15,7 +15,7 @@ function Header({ setSelectedcategory, searchedProduct, setSearchedProduct,added
 
     useEffect(()=>{
         const fetch = async () => {
-            const res = await axios.get("http://localhost:8000/api/product/fetchcategory");
+            const res = await axios.get("https://quickmartproject-backend.onrender.com/api/product/fetchcategory");
             setCategories(res.data.result);
         };
         fetch();
@@ -83,7 +83,7 @@ function Header({ setSelectedcategory, searchedProduct, setSearchedProduct,added
     };
 
     function logout(){
-        axios.post('http://localhost:8000/api/product/logout',{},{withCredentials:true})
+        axios.post('https://quickmartproject-backend.onrender.com/api/product/logout',{},{withCredentials:true})
         setProfileShow(false)
         navigateTo('/')
     }
