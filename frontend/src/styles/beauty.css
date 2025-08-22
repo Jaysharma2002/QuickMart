@@ -27,54 +27,55 @@
   --bp-tablet: 600px;
   --bp-laptop: 1024px;
   --bp-desktop: 1440px;
+
+  --gap-lg: 24px;
+  --gap-md: 16px;
+  --gap-sm: 10px;
+
+  --card-min: 280px;   /* default min card width on desktop */
+  --card-padding: 16px;
+  --card-radius: 12px;
+
+  --img-h-desktop: 300px;
+  --img-h-tablet: 240px;
+  --img-h-mobile: 180px;
 }
 
 /* =========================================================
    2) Product grid wrapper
    ========================================================= */
-.content {
-  /* Safe area (left/right/bottom) without affecting header */
-  padding: calc(var(--space-5)) var(--space-4);
-  padding-left: calc(var(--space-4) + env(safe-area-inset-left));
-  padding-right: calc(var(--space-4) + env(safe-area-inset-right));
-  padding-bottom: calc(var(--space-5) + env(safe-area-inset-bottom));
+*{ box-sizing: border-box; }
 
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(var(--card-min), 1fr));
-  gap: var(--space-6);
+/* ================= GRID CONTAINER ================= */
+.content {
   width: 100%;
-  max-width: 1400px;      /* keeps nice margins on large screens */
+  max-width: 1400px;
   margin: 0 auto;
-  font-family: 'Poppins', sans-serif;
-  z-index: 1;
+  padding: clamp(12px, 2.5vw, 24px);
+  display: grid;
+
+  /* auto-fit/minmax lets grid choose columns; card will shrink to --card-min */
+  grid-template-columns: repeat(auto-fit, minmax(var(--card-min), 1fr));
+  gap: var(--gap-lg);
+
+  /* safe-area for notches (optional, fine to keep) */
+  padding-left: calc( clamp(12px,2vw,24px) + env(safe-area-inset-left) );
+  padding-right: calc( clamp(12px,2vw,24px) + env(safe-area-inset-right) );
+  padding-bottom: calc( clamp(12px,2vw,24px) + env(safe-area-inset-bottom) );
 }
 
-/* Legacy iOS fallback for safe area */
-.content {
-  padding-left: calc(var(--space-4) + constant(safe-area-inset-left));
-  padding-right: calc(var(--space-4) + constant(safe-area-inset-right));
-  padding-bottom: calc(var(--space-5) + constant(safe-area-inset-bottom));
-}
-
-/* =========================================================
-   3) Card base
-   ========================================================= */
+/* ================ CARD BASE ================ */
 .card {
   background: linear-gradient(135deg, #ffffff, #f8f9fa);
-  color: #1a1a1a;
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-md);
-  padding: var(--space-4);
-  width: 100%;
-  min-height: 420px;
-
-  display: flex;              /* <-- needed to anchor button at bottom */
+  border-radius: var(--card-radius);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+  padding: var(--card-padding);
+  display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   align-items: stretch;
-  text-align: center;
-
-  transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
-  cursor: pointer;
+  min-height: 420px;                 /* keep cards visually consistent */
+  transition: transform .18s ease, box-shadow .18s ease;
 }
 
 @media (hover: hover) {
@@ -334,35 +335,49 @@
    ========================================================= */
 
 /* Phones (<= 599px): single column, compact paddings */
-@media (max-width: 599px) {
-  .content { gap: var(--space-4); padding: var(--space-3); }
-  .img-container { height: clamp(180px, 32vh, 240px); }
-  .card { min-height: 0; padding: var(--space-3); }
-  .card p { font-size: clamp(13px, 3.6vw, 14px); }
-  .desc { -webkit-line-clamp: 2; }
-  .add, .outofstock { font-size: 14px; padding: 10px 14px; }
+@media (min-width: 1440px){
+  :root{ --card-min: 300px; --img-h-desktop: 320px; --card-padding: 18px; }
+  .content { gap: 28px; }
 }
 
-/* Tablets (600px – 1023px): 2–3 columns, medium paddings */
-@media (min-width: 600px) and (max-width: 1023px) {
-  .content { gap: var(--space-5); padding: var(--space-4); }
-  .img-container { height: clamp(220px, 28vh, 280px); }
-  .card { min-height: 420px; }
-  .desc { -webkit-line-clamp: 2; }
+/* Large laptops */
+@media (min-width: 1024px) and (max-width: 1439px){
+  :root{ --card-min: 260px; --img-h-desktop: 300px; --card-padding: 16px; }
+  .content { gap: 24px; }
 }
 
-/* Laptops (>= 1024px): 3–4 columns, airier spacing */
-@media (min-width: 1024px) and (max-width: 1439px) {
-  .content { gap: var(--space-6); }
-  .img-container { height: clamp(240px, 26vh, 300px); }
-  .desc { -webkit-line-clamp: 2; }.slideimage {
-    max-height: 350px;
-  }
-  .prev, .next {
-    font-size: 24px;
-    padding: 10px 14px;
-  }
+/* Tablets: push to smaller min width so 3 columns can appear on narrower tablet widths */
+@media (min-width: 700px) and (max-width: 1023px){
+  :root{ --card-min: 200px; }         /* smaller cards -> grid will fit more columns */
+  .content { gap: 18px; padding: 14px; }
+  .img-container { height: var(--img-h-tablet); }
+  :root{ --img-h-tablet: 220px; }
+  .head { font-size: .98rem; } 
+  .desc { font-size: .92rem; -webkit-line-clamp: 2; }
 }
+
+/* Small tablets and large phones (this is aggressive: allows 3 columns on widths ~540-640px) */
+@media (min-width: 480px) and (max-width: 699px){
+  :root{ --card-min: 160px; }        /* 3 cards at ~480px require ~150px each plus gaps */
+  .content { gap: 12px; padding: 12px; }
+  .img-container { height: 180px; }
+  .card { min-height: 340px; padding: 12px; }
+  .head { font-size: .95rem; }
+  .desc { font-size: .9rem; -webkit-line-clamp: 2; }
+  .add { min-height: 40px; padding: 8px 10px; font-size: .9rem; }
+}
+
+/* Small phones — extremely aggressive: three cards on tiny screens only if you accept tiny cards */
+@media (max-width: 479px){
+  :root{ --card-min: 110px; }       /* if you MUST show 3 columns on 330px viewport -> 110px each */
+  .content { gap: 8px; padding: 8px; }
+  .img-container { height: 120px; }
+  .card { min-height: 260px; padding: 8px; border-radius: 8px; }
+  .head { font-size: .85rem; }
+  .desc { font-size: .78rem; -webkit-line-clamp: 2; }
+  .add { min-height: 36px; padding: 6px 8px; font-size: .82rem; }
+}
+
 
 /* Desktops (>= 1440px): roomy layout */
 @media (min-width: 1440px) {
