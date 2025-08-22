@@ -12,12 +12,19 @@ import configurePassport from "./config/passport.js";
 dotenv.config();
 const app = express();
 
+app.set('trust proxy', 1); // << IMPORTANT for secure cookies behind a proxy
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use(cors({
   origin: "https://quickmartproject.onrender.com",
   credentials: true,
+}));
+
+app.options("*", cors({
+    origin: 'https://quickmartproject.onrender.com',
+    credentials: true,
 }));
 
 app.use(session({
