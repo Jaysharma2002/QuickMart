@@ -27,6 +27,10 @@ export default function configurePassport() {
             name: profile.displayName,
             email: profile.emails[0].value,
             profileimage: profile.photos[0].value,
+            address: "",
+            phone: "",
+            gender: "",
+            age: ""
           });
         }
       }
