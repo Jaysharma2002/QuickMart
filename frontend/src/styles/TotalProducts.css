@@ -1,0 +1,91 @@
+.count-card {
+  border-radius: 10px;
+  padding: 22px;
+  position: relative;
+  overflow: hidden;
+  color: white;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap:25px;
+  width:100%;
+}
+
+/* Decorative semi-circle shape */
+.count-card::before {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: linear-gradient(135deg,rgba(102, 126, 234, 0.25), rgba(118, 75, 162, 0.25) );
+  top: -100px;
+  right: -100px;
+}
+
+.count-card::after {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: linear-gradient(135deg,rgba(102, 126, 234, 0.25), rgba(118, 75, 162, 0.25) );
+  top: -125px;
+  right: -35px;
+}
+
+.count-card p,.count-card h1{
+  font-family: 'Poppins';
+  text-align: left;
+  font-weight: 500;
+  padding: 0;
+  margin: 0;
+}
+.count-card p{
+  font-family: 'Poppins';
+  font-size: 18px;
+  font-weight: 500;
+}
+.count-card button{
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border: none;
+    padding:8px;
+    border-radius: 10px;
+}
+.count-card i{
+    font-size: 18px;
+    color:white
+}
+.groupeditems{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap:10px;
+}
+.product-btn{
+  cursor: pointer;
+}
+.coupled{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap:10px;
+}
+@media only screen and (max-width:700px)
+{
+  .count-card{
+    zoom:0.9
+  }
+}
+@media only screen and (max-width:550px)
+{
+  .count-card{
+    zoom:0.8
+  }
+  .groupeditems{
+    gap: 5px !important;
+  }
+}

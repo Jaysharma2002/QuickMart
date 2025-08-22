@@ -1,0 +1,31 @@
+import express from "express";
+import passport from "passport";
+import { logout } from "./Controller.js";
+
+const router = express.Router();
+
+// Google login
+router.get("/google", passport.authenticate("google", { scope: ["profile", "email"] }));
+
+// Google callback
+router.get(
+  "/google/callback",
+  passport.authenticate("google", { failureRedirect: "http://localhost:5173/" }),
+  (req, res) => {
+    req.session.userId = req.user._id;
+    req.session.save(() => {
+      res.redirect("http://localhost:5173/home");
+    });
+  }
+);
+
+router.get("/logout", logout);
+
+router.get("/me", (req, res) => {
+  if (req.isAuthenticated && req.isAuthenticated()) {
+    return res.json({ success: true, user: req.user, userId: req.session.userId });
+  }
+  return res.status(401).json({ success: false, message: "Not authenticated" });
+});
+
+export default router;

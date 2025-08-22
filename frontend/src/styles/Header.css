@@ -1,0 +1,385 @@
+
+.Allheader{
+    position:sticky;
+    top:0;
+    background-color: white;
+    padding:10px 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    z-index: 100;
+}
+.category-setion,.search-home-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:20px;
+    padding: 0px 10px;
+}
+.user-logo-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.user-logo-container img{
+    height: 40px;
+}
+.user-logo-container p{
+    font-size: 30px;
+    font-family: 'Poppins';
+    font-weight: 200;
+    letter-spacing: 2px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    padding: 0;
+    margin: 0;
+}
+
+.user-logo-container p::after{
+    content:'';
+    position: absolute;
+    top:0;
+    left: -75%;
+    width: 20%;
+    height: 100%;
+    background:linear-gradient(120deg, rgb(255, 255, 255,0)0%, rgba(255, 255, 255, 0.5)50% ,rgb(255, 255, 255,0)100%) ;
+    animation: shine 10s ease-in-out infinite;
+}
+
+@keyframes shine{
+    0%, 16% { left: -75%;opacity: 1; }
+  20% { left: 130%; }
+   30%{ left: -75%; }
+  40% { left: 130%; }
+  50%{opacity: 0;}
+  100% { left: 130%;opacity: 0; }
+}
+
+.header{
+    display:flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: white;
+    width:100%;
+}
+
+/* Buttons container */
+.buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0px 10px;
+}
+.header button {
+    position: relative;
+    overflow: hidden;
+    padding: 10px 16px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 14px rgba(102, 126, 234, 0.4);
+}
+
+.header button:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+/* Ripple Effect */
+.header button::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease, height 0.4s ease;
+    z-index: 0;
+}
+
+.header button:active::before {
+    width: 200%;
+    height: 500%;
+}
+
+.header button i {
+    font-size: 16px;
+}
+.header button span{
+    font-family: 'Poppins';
+    font-weight: 500;
+}
+/* Make text and icon on top of ripple */
+.header button * {
+    z-index: 1;
+    position: relative;
+}
+/* Category buttons */
+.categories {
+    border: none;
+    background: none;
+    color: rgba(0, 0, 0, 0.6);
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+.categories:hover {
+    cursor: pointer;
+    color: #667eea;
+    font-weight: 600;
+    transform: scale(1.03);
+}
+
+/* Searchbar container */
+.searchbarcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    padding: 0 12px;
+}
+.searchbar {
+    max-width: 180px;
+    padding: 10px 16px;
+    font-size: 16px;
+    border-radius: 12px;
+    background-image: linear-gradient(#fff, #fff),
+                      linear-gradient(135deg, #667eea, #764ba2);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: rgba(0, 0, 0, 0.83);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    outline: none;
+    transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+.searchbar:hover,
+.searchbar:focus {
+    transform: scale(1.03);
+    box-shadow: 0 0 15px rgba(118, 75, 162, 0.6);
+}
+
+/* Search button icon */
+.searchbutton i {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 8px;
+    font-size: 18px;
+    border-radius: 8px;
+    box-shadow: 0 4px 14px rgba(102, 126, 234, 0.4);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+.searchbutton i:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+/* Navbar styles */
+.navbar {
+    width: 280px;
+    left:0;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    border-radius: 10px;
+    height: 100vh;
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    background-color: white;
+    overflow-y: auto;
+    padding: 16px;
+}
+.navbar.visible { display: flex;
+    width: 280px; }
+.navbar.hidden { display: none; }
+.navbar ul {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+.navbar li {
+  margin-bottom: 10px;
+}
+.navbar button {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  text-align: left;
+  padding: 10px 15px;
+  font-size: 16px;
+  font-family: 'Poppins';
+  font-weight: light;
+  color: #333;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.navbar button:hover {
+  background-color: #f0f0f0;
+  color: #000;
+}
+
+.navbar button:focus {
+  outline: none;
+  background-color: #e0e0e0;
+}
+/* Cart badge */
+.cart-btn {
+    position: relative;
+    background: none;
+    border: none;
+    font-size: 20px;
+}
+.badge {
+    position: absolute;
+    top: -8px;
+    left:-3px;
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+/* Profile menu */
+.profile {
+    position: fixed;
+    margin-top: -5px;
+    margin-left:-5px ;
+    width: 50px;
+    background-color: white;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    z-index: 500;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    padding: 10px 0px;
+}
+.profile button {
+    border: none;
+    background-color: transparent;
+    font-weight: 500;
+    font-size: 14px;
+    color: white;
+    padding: 8px;
+}
+.profilebutton {
+    width: 20px;
+    border-radius: 20%;
+    border: 2px solid #667eea;
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+}
+.profilevisible{
+    animation: profileVisible 0.3s ease-in forwards;
+    display: flex;
+}
+@keyframes profileVisible{
+    10%{}
+    50%{margin-top: 0px;}
+    60%{margin-top: 1px;}
+    70%{margin-top: 2px;}
+    80%{margin-top: 3px;}
+    90%{margin-top: 4px;}
+    100%{margin-top: 5px;}
+}
+.profilehidden{
+    display: none;
+}
+.productincart {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #fff;
+    color: #333;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.95rem;
+    font-family: 'Poppins';
+    font-weight: 500;
+    z-index: 9999;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.3s ease-in-out;
+}
+
+.productincart p{
+    margin: 0;
+    padding: 0;
+}
+
+.productincart.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* when hidden */
+.productincart.hidden {
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+}
+
+.productincart i {
+    color: #f59e0b;
+    font-size: 1.1rem;
+}
+@media only screen and (max-width:630px)
+{
+    .header{
+        zoom:0.7 !important;
+    }
+}
+@media only screen and (max-width:1000px){
+    .Allheader{
+        padding: 10px 20px;
+    }
+    .header span:not(.badge){
+        display: none;
+    }
+    .header button{
+        padding:10px
+    }
+    .category-setion{
+        gap:10px;
+    }
+    .buttons{
+        gap:10px;
+    }
+}
+
+@media only screen and (max-width:560px){
+    .header{
+        zoom:0.65 !important;
+    }
+    .buttons{
+        padding-top: 8px;
+    }
+    .navbar{
+        width:250px;
+    }
+}
+@media only screen and (max-width:790px){
+    .header{
+        zoom:0.8;
+    }
+}

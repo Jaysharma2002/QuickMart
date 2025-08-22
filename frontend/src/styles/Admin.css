@@ -1,0 +1,331 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+.Admin {
+    width: 100%;
+}
+
+.Table {
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding:10px 0px;
+}
+.initialhide{
+    display: none;
+}
+
+.Table table {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    width: 95%;
+    background: #1f1f1f;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+.Table table th {
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    padding: 12px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border-bottom: 2px solid rgba(255,255,255,0.15);
+    text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+}
+
+.Table table td {
+    font-size: 16px;
+    text-align: center;
+    padding: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    color: black;
+    background-color: rgb(255, 255, 255);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    transition: background-color 0.25s ease;
+}
+
+.Table table tr:hover td {
+    background-color: rgba(255, 255, 255, 0.923);
+}
+
+.Table table td img {
+    height: 90px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    padding: 2px;
+}
+
+.Table table td textarea {
+    max-width: 350px;
+    height: 80px;
+    padding: 5px;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    background: white;
+    color: black;
+    border: 2px solid black  !important;
+    border-radius: 6px;
+}
+
+.colbutton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.logoutbutton, .colbutton, .addbutton {
+    border-radius: 6px;
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: bold;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.logoutbutton:hover, .colbutton:hover, .addbutton:hover ,.filter-product-buttons button:hover{
+    transform: scale(1.03);
+    box-shadow: 0 4px 14px rgba(102, 126, 234, 0.4);
+}
+
+.addbutton {
+    background: linear-gradient(135deg, #3efcb4, #28a67a);
+}
+
+button{
+    cursor: pointer;
+}
+.popup {
+    background: rgb(255, 255, 255); /* Dark semi-transparent for modern look */
+    backdrop-filter: blur(12px); /* Glassmorphism effect */
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 500px;
+    z-index: 100;
+    border-radius: 10px;
+    max-height:85% ;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.popup.visible {
+  animation: popupAppear 350ms ease-out forwards;
+}
+
+.popup.hidden {
+  animation: popupDisappear 300ms ease-in forwards;
+}
+
+/* keyframes */
+@keyframes popupAppear {
+  0% { display:flex;opacity: 0; transform: translate(-50%, -10%) scale(0.96); }
+  100% { opacity: 1; transform: translate(-50%, 0) scale(1); }
+}
+@keyframes popupDisappear {
+  0% { opacity: 1; transform: translate(-50%, 0) scale(1); }
+  100% { opacity: 0; transform: translate(-50%, -10%) scale(0.96);display: none; }
+}
+
+.popup.visible input ,.popup.visible select {
+    width: 100%;
+    padding: 10px;
+    font-size: 15px;
+    font-family: 'Poppins';
+    border: 1px solid black;
+    background-color: rgb(235, 235, 235);
+    color: black;
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+.popup input:focus, 
+.popup select:focus {
+    outline: none;
+    border: 3px solid transparent; /* Required for border-image to show */
+    border-image: linear-gradient(135deg, #667eea, #764ba2) 1;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.popbuttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.popbuttons button,.filter-product-buttons button {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 8px;
+    border: none;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.popbuttons button::before {
+    content: "";
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.25);
+    transform: skewX(-20deg);
+    transition: left 0.4s ease;
+}
+
+.popbuttons button:hover::before {
+    left: 100%;
+}
+
+.popbuttons button:hover {
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+}
+
+.popbuttons button:active {
+    transform: scale(0.98);
+}
+
+.images-grid { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0; }
+.image-item { position: relative; width: 72px; height: 72px; border-radius: 8px; overflow: hidden; }
+.image-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.remove-image-btn {
+  position: absolute; top: 4px; right: 4px; border: none; background: rgba(0,0,0,0.6);
+  color: #fff; border-radius: 50%; width: 20px; height: 20px; line-height: 20px; cursor: pointer;
+}
+.muted { opacity: 0.7; font-size: 0.9rem; }
+.add-image-row { display: flex; gap: 8px; align-items: center; }
+.add-image-row input[type="url"] { flex: 1; }
+
+
+.products{
+    display: flex;
+}
+
+.size-row{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.7);
+    width: 90%;
+    padding:15px 30px;
+    gap:10px;
+    border-radius: 10px;
+}
+.add-btn, .remove-btn {
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-left: 10px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Add Button */
+.add-btn {
+  background: linear-gradient(135deg, #42a5f5, #1e88e5);
+}
+
+.add-btn:hover {
+  background: linear-gradient(135deg, #1e88e5, #1565c0);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(30, 136, 229, 0.3);
+}
+
+/* Remove Button */
+.remove-btn {
+  background: linear-gradient(135deg, #ef5350, #d32f2f);
+}
+
+.remove-btn:hover {
+  background: linear-gradient(135deg, #d32f2f, #b71c1c);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(211, 47, 47, 0.3);
+}
+
+.filter-product-buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
+    margin-bottom: 10px;
+}
+
+/* Media Queries */
+@media (max-width: 900px) {
+    .Table{
+        width: 100%;
+        zoom:0.7
+    }
+    table{
+        width: 100%;
+        zoom:0.7
+    }
+}
+
+@media (max-width: 565px) {
+    .Table table {
+        width: 100%;
+        zoom:0.6
+    }
+
+    .Table{
+        width:102%;
+        zoom:0.6;
+    }
+    .Admin {
+        width: 100%;
+    }
+}
+@media (max-width: 380px) {
+    .Table table {
+        width: 100%;
+        zoom:0.6
+    }
+
+    .Table{
+        width:100%;
+        zoom:0.6;
+    }
+    .Admin {
+        width: 100%;
+    }
+}
+
+@media (max-width: 700px) {
+    .text{
+        display: none;
+    }
+}

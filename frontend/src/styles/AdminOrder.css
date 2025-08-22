@@ -1,0 +1,179 @@
+
+.TableOrder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    zoom:0.8
+}
+
+.TableOrder table {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    width: 95%;
+    background: #1f1f1f;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+.TableOrder table th {
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    padding: 12px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border-bottom: 2px solid rgba(255,255,255,0.15);
+    text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+}
+
+.TableOrder table td {
+    font-size: 18px;
+    text-align: center;
+    padding: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    color: black;
+    background-color: rgb(255, 255, 255);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    transition: background-color 0.25s ease;
+}
+
+.TableOrder table tr:hover td {
+    background-color: rgba(255, 255, 255, 0.923);
+}
+
+.TableOrder table td img {
+    height: 90px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    padding: 2px;
+}
+
+.TableOrder table td span {
+    font-size: 16px;
+}
+.Adminorder{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:50px;
+}
+.newoption{
+    padding: 8px 12px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'Poppins';
+    font-weight: 500;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 14px rgba(102, 126, 234, 0.4);
+}
+
+.statuscontainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.updatestatuscontainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
+}
+.updatebutton,.showallbutton{
+    padding:10px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 10px;
+    font-size: 18px;
+    font-family: 'Poppins';
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 14px rgba(102, 126, 234, 0.4);
+    border: none;
+}
+
+input[type="date"] {
+  font-family: 'Poppins', sans-serif;
+  padding: 8px 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  color:white;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+}
+
+/* Position a custom icon */
+.datecontainer {
+  position: relative;
+}
+
+.datecontainer::after {
+  content: "📅";
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+@media (max-width: 1300px) {
+    .TableOrder{
+        width: 100%;
+        zoom:0.7
+    }
+    table{
+        width: 100%;
+        zoom:0.9
+    }
+}
+@media (max-width: 1000px) {
+    .TableOrder{
+        width: 100%;
+        zoom:0.7
+    }
+    table{
+        width: 100%;
+        zoom:0.7
+    }
+}
+
+@media (max-width: 650px) {
+    .TableOrder table {
+        width: 100%;
+        zoom:0.65
+    }
+
+    .TableOrder{
+        width:100%;
+        zoom:0.6;
+    }
+    .TableOrder table th {
+        font-size: 18px;
+        padding: 2px;
+    }
+}
+
+@media (max-width: 800px) {
+    .TableOrder {
+        padding: 20px 5px;
+        zoom:0.65
+    }
+    .TableOrder{
+        width:100%;
+        zoom:0.6;
+    }
+}
+

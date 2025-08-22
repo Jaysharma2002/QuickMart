@@ -1,0 +1,55 @@
+.recent-orders {
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.recent-orders h2 {
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  font-weight: 400;
+  font-family: 'Poppins';
+}
+
+.recent-orders table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.recent-orders th,
+.recent-orders td {
+  font-family: 'Poppins';
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.recent-orders th {
+  background-color: #f5f5f5;
+  font-weight: 500;
+}
+
+.recent-orders tr:hover {
+  background-color: #f9f9f9;
+}
+
+@media only screen and (max-width:480px) {
+  .recent-orders{
+    zoom:0.9
+  }
+  .recent-orders th,
+.recent-orders td{
+  padding:12px;
+}
+}
+@media only screen and (max-width:410px) {
+  .recent-orders{
+    zoom:0.8
+  }
+}
+@media only screen and (max-width:360px) {
+  .recent-orders{
+    zoom:0.7
+  }
+}

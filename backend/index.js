@@ -1,0 +1,57 @@
+import express from "express";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+import cors from "cors";
+import session from "express-session";
+import MongoStore from "connect-mongo";
+import passport from "passport";
+
+import productRoutes from "./routes.js";
+import authRoutes from "./auth.js";
+import configurePassport from "./config/passport.js";
+
+dotenv.config();
+const app = express();
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+app.use(cors({
+  origin: "http://localhost:5173",
+  credentials: true,
+}));
+
+app.use(session({
+  name: "connect.sid",
+  secret: process.env.SESSION_SECRET || "your-secret-key",
+  resave: false,
+  saveUninitialized: false,
+  store: MongoStore.create({
+    mongoUrl: process.env.MONGO_URL,
+    collectionName: "sessions",
+    ttl: 14 * 24 * 60 * 60,
+  }),
+  cookie: {
+    maxAge: 24 * 60 * 60 * 1000,
+    secure: false,
+    httpOnly: true,
+    sameSite: "lax",
+  },
+}));
+
+// Setup passport
+configurePassport();
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use("/api/product", productRoutes);
+app.use("/auth", authRoutes);
+
+mongoose.connect(process.env.MONGO_URL)
+  .then(() => console.log("✅ MongoDB Connected Successfully"))
+  .catch(err => console.error("❌ MongoDB Connection Error:", err));
+
+const PORT = process.env.PORT || 8000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});

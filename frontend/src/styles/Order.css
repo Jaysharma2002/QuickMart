@@ -1,0 +1,248 @@
+.ordertext{
+    text-align: center;
+    background: linear-gradient(135deg, #2465af, #1e90ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.showorder{
+    padding: 8px 12px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'Poppins';
+    font-weight: 500;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 14px rgba(102, 126, 234, 0.4);
+}
+.showorder:hover{
+    cursor: pointer;
+}
+.order{
+    padding-bottom: 20px;
+}
+.select-status{
+    padding: 8px 12px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'Poppins';
+    font-weight: 500;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 14px rgba(102, 126, 234, 0.4);
+}
+.option{
+    color: black;
+}
+.order-label{
+    color:white;
+    font-size: 20px;
+    font-weight: 500;
+    font-family: 'Poppins';
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 5px;
+}
+.dateinput{
+    font-size: 18px;
+    font-weight: 500;
+    color:white;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 10px;
+    padding:10px;
+    font-family: 'Poppins';
+}
+.AllOrder{
+    width:70%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 4px 8px rgba(9, 9, 9, 0.655);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:20px;
+    padding:20px;
+    border-radius: 10px;
+    position: relative;
+}
+.innercontainer{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap:50px;
+    margin-top: 10px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+.order-productdetails{
+    font-size: 14px;
+    font-family: 'Poppins';
+    font-weight: 500;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap:5px;
+}
+.productimage{
+    width:100px;
+    height: 100px;
+    border-radius: 10px;
+}
+.rating{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width:100%;
+}
+.inner-rating-container{
+    display:flex;
+    justify-content:flex-start;
+    align-items:center;
+    width:100%;
+    padding: 10px;
+}
+.user-review-container{
+    display:flex;
+    justify-content: flex-end;
+    align-items:center;
+    width:100%
+}
+.user-review-container input{
+    width:100%;
+    padding:10px 5px;
+    border:solid 2px rgb(229, 228, 228);
+    border-radius: 10px;
+    position: relative;
+}
+.user-review-save-btn{
+    position: absolute;
+    margin-right: 10px;
+    background-color: white;
+    font-size: larger;
+    border: none;
+    cursor: pointer;
+}
+.rating-btn{
+    border: none;
+    background-color: white;
+    font-size: large;
+}
+.cardorder{
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.06);
+    background-color:white;
+    padding:10px;
+    border-radius: 10px;
+    width: 90%;
+    min-height: 150px;
+    transition: transform .12s ease, box-shadow .12s ease;
+}
+.cardorder:hover { transform: translateY(-2px); box-shadow: 0 18px 36px rgba(2,6,23,0.06); }
+.containerallorder{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom:10px;
+}
+.order-staus-title{
+    margin: 0;
+    padding:5px 10px;
+    font-family: 'Poppins';
+    font-size: 15px;
+    font-weight: 500;
+}
+.order-date-title{
+    margin: 0;
+    font-family: 'Poppins';
+    font-size: 14px;
+    font-weight: 500;
+}
+.orderstatuscontainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.review-saved-message {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    opacity: 1;
+    animation: fadeInOut 2s ease-in-out;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateX(-50%) translateY(10px); }
+    20% { opacity: 1; transform: translateX(-50%) translateY(0); }
+    80% { opacity: 1; transform: translateX(-50%) translateY(0); }
+    100% { opacity: 0; transform: translateX(-50%) translateY(10px); }
+}
+.cancelbutton{
+    background: linear-gradient(135deg, #fd5555, #ff2222);
+    color:white;
+    border-radius:10px;
+    font-size: 14px;
+    font-family: 'Poppins';
+    font-weight:500;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
+    margin-right: 20px;
+}
+.cancelbutton:hover {
+    background: linear-gradient(135deg, #ff3333, #ff0000); /* Darker red on hover */
+  }
+@media only screen and (max-width:1000px){
+    .OrderComponent{
+        zoom:0.8
+    }
+    .innercontainer{
+        gap:40px;
+    }
+    .AllOrder{
+        width:70% !important
+    }
+}
+
+@media only screen and (max-width:750px){
+    .OrderComponent{
+        zoom:0.7
+    }
+    .Adminorder{
+        gap:15px;
+    }
+    .innercontainer{
+        gap:20px;
+    }
+    .AllOrder{
+        width:75% !important
+    }
+}
+@media only screen and (max-width:565px){
+    .OrderComponent{
+        zoom:0.6
+    }
+    .AllOrder{
+        width:85% !important
+    }
+    .Adminorder{
+        zoom:0.8
+    }
+    .cancelbutton{
+        margin-right: 0;
+    }
+}

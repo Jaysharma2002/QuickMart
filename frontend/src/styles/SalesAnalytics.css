@@ -1,0 +1,63 @@
+.Cart-Container {
+  margin: auto;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0,0.5);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Cart-Container h2 {
+  color: #333;
+  font-weight: 500;
+  font-family: 'Poppins';
+}
+
+.recharts-wrapper {
+  font-family: 'Poppins';
+}
+
+.recharts-tooltip-wrapper {
+  font-size: 0.9rem;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 6px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  padding: 8px;
+}
+
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  stroke: #e0e0e0;
+}
+
+.recharts-text {
+  fill: #666;
+  font-size: 0.75rem;
+}
+@media only screen and (max-width:700px)
+{
+  .Cart-Container{
+    zoom:0.9
+  }
+}
+@media only screen and (max-width:550px)
+{
+  .Cart-Container{
+    zoom:0.8
+  }
+}@media only screen and (max-width:450px)
+{
+  .Cart-Container{
+    zoom:0.7
+  }
+}
+@media only screen and (max-width:350px)
+{
+  .Cart-Container{
+    zoom:0.6
+  }
+}

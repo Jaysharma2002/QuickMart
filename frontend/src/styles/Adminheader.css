@@ -1,0 +1,180 @@
+.adminheader {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 20px;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding:10px;
+    z-index: 10;
+}
+
+.headtitle,
+.admin-header-buttons,
+.logout-btn-container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.headtitle input {
+    padding: 10px 30px;
+    border-radius: 12px;
+    background-image: linear-gradient(#fff, #fff),
+                      linear-gradient(135deg, #667eea, #764ba2);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(6px);
+    color: rgba(0, 0, 0, 0.834);
+    font-size: 14px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+    outline: none;
+    transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+/* Focus animation */
+.headtitle input:focus {
+    animation: inputfocus 0.4s ease forwards;
+    border: 2px solid transparent;
+    background-image: linear-gradient(#fff, #fff),linear-gradient(135deg, #667eea, #764ba2);
+    box-shadow: 0 0 10px rgba(102, 126, 234, 0.4);
+}
+
+@keyframes inputfocus {
+    0% {transform: scale(1);box-shadow: 0 0 0 rgba(102, 126, 234, 0);}
+    100% {transform: scale(1.05);box-shadow: 0 0 15px rgba(118, 75, 162, 0.6);}
+}
+
+
+.headtitle input::placeholder {
+    color: rgba(57, 57, 57, 0.6);
+}
+
+.adminheader button {
+    position: relative;
+    overflow: hidden;
+    padding: 8px 16px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 12px;
+    font-weight: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 14px rgba(102, 126, 234, 0.4);
+}
+.adminheader button span{
+    font-size: 11px !important;
+}
+.adminheader button:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+/* Ripple Effect */
+.adminheader button::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease, height 0.4s ease;
+    z-index: 0;
+}
+
+.adminheader button:active::before {
+    width: 200%;
+    height: 500%;
+}
+
+.adminheader button i {
+    font-size: 16px;
+}
+.adminheader button span{
+    font-family: 'Poppins';
+
+}
+.adminheader button * {
+    z-index: 1;
+    position: relative;
+}
+@media (max-width: 1024px) {
+    .adminheader img {
+        width: 60px;
+    } 
+    .adminheader input {
+        max-width: 300px;
+        font-size: 12px;
+    }
+    .adminheader{
+        zoom:0.9
+    }
+    .headtitle input {
+        width: 220px;
+        font-size: 13px;
+    }
+
+    .adminheader button {
+        padding: 8px 14px;
+        font-size: 13px;
+    }
+}
+
+/* For mobile landscape (≤768px) */
+@media (max-width: 768px) {
+    .adminheader {
+        zoom:0.8
+    }
+}
+
+/* For small mobile screens (≤480px) */
+@media (max-width: 540px) {
+    .adminheader {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+    }
+    
+    .headtitle { grid-area: 1 / 1 / 3 / 5;justify-content: center;margin-bottom: 8px; }
+    .admin-header-buttons { grid-area: 3 / 1 / 5 / 4;width: 100%;justify-content: space-evenly; }
+    .adminheader button span {
+        display: block;
+        font-size: 11px;
+        font-weight: 200;
+    }
+    .adminheader button {
+        width: 70%;
+        border-radius: 10px !important;
+    }
+    .logout-btn-container { grid-area: 3 / 4 / 5 / 5;padding-left: 10px; }
+    .logout-btn-container button{width: 100% !important;}
+    .headtitle button{
+        padding: 15px 8px !important;
+        width: 10% !important;
+    }
+    .headtitle input {
+        padding: 15px;
+        width: 100%;
+        font-size: 12px;
+    }
+
+    .adminheader button {
+        justify-content: center;
+        font-size: 12px;
+        padding: 10px;
+    }
+}

@@ -1,0 +1,86 @@
+.yearly-earning-card {
+  border-radius: 10px;
+  padding: 22px;
+  position: relative;
+  overflow: hidden;
+  color: white;
+  min-width: 300px;
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap:25px;
+}
+
+/* Decorative semi-circle shape */
+.yearly-earning-card::before {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: linear-gradient(135deg,rgba(102, 126, 234, 0.25), rgba(118, 75, 162, 0.25) );
+  top: -100px;
+  right: -100px;
+}
+
+.yearly-earning-card::after {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: linear-gradient(135deg,rgba(102, 126, 234, 0.25), rgba(118, 75, 162, 0.25) );
+  top: -125px;
+  right: -35px;
+}
+
+.yearly-earning-card h1{
+    font-family: "Poppins",sans-serif;
+    text-align: left;
+    font-weight: 500;
+    padding: 0;
+    margin: 0;
+}
+.yearly-earning-card p{
+    font-family: "Poppins",sans-serif;
+    text-align: left;
+    font-weight: 500;
+    font-size: 18px;
+    padding: 0;
+    margin: 0;
+}
+.yearly-earning-card button{
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border: none;
+    padding:8px;
+    border-radius: 10px;
+}
+.yearly-earning-card i{
+    font-size: 18px;
+    color:white
+}
+.groupeditems{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap:10px;
+}
+
+@media only screen and (max-width:700px)
+{
+  .yearly-earning-card{
+    zoom:0.9
+  }
+}
+@media only screen and (max-width:550px)
+{
+  .yearly-earning-card{
+    zoom:0.8
+  }
+  .groupeditems{
+    gap: 5px !important;
+  }
+}

@@ -1,0 +1,181 @@
+.auth-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 32px;
+  background-image:url("../assets/bg-image.jpg"),linear-gradient(135deg, #8ea1ff, #9a7fd6);
+  background-size: cover, cover;
+  background-position: center, center;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(1200px 600px at 50% 20%, rgba(255,255,255,0.35), rgba(255,255,255,0.08) 50%, rgba(0,0,0,0.10) 100%);
+  pointer-events: none;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 600px;
+  background: #ffffffcc;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(31, 41, 55, 0.18);
+  padding: 26px 24px;
+  animation: cardIn 420ms cubic-bezier(.2,.9,.2,1) 20ms both;
+}
+
+@keyframes cardIn {
+  from { transform: translateY(14px) scale(.98); opacity: 0; }
+  to   { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+/* Header / brand */
+.auth-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+@keyframes floaty { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-2px)} }
+
+.card-title-register {
+  margin: 8px 0 16px;
+  font-size: 22px;
+  font-weight: 800;
+  color: #0f172a;
+  text-align: center;
+}
+
+/* Form layout */
+.auth-form { display: grid; gap: 14px; }
+
+.field label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #334155;
+  font-size: 13px;
+}
+
+.input {
+  display: grid;
+  grid-template-columns: 38px 1fr 40px;
+  align-items: center;
+  border: 1px solid #e6eefb;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+  transition: box-shadow .18s ease, border-color .18s ease;
+}
+.input i {
+  display: grid; 
+  place-items: center;
+  font-size: 14px;
+color: #64748b;
+}
+.input input {
+  border: none; 
+  outline: 0; 
+  background: transparent;
+  padding: 12px 0; 
+  font-size: 14px; 
+  color: #0f172a;
+}
+.input input::placeholder { color: #94a3b8; }
+
+.toggle-pass {
+  border: 0; background: transparent; cursor: pointer;
+  color: #64748b; padding-right: 10px;
+  transition: transform .12s ease, color .18s ease;
+}
+.toggle-pass:hover { transform: translateY(-1px); color: #0f172a; }
+
+.input:focus-within {
+  border-color: rgba(79, 70, 229, 0.95);
+}
+
+.pw-meter {
+  margin-top: 8px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+.pw-meter .bar {
+  height: 6px;
+  border-radius: 999px;
+  background: #e9edff;
+  box-shadow: inset 0 0 0 1px #e1e6ff;
+}
+.pw-meter .bar.on:nth-child(1) { background: #93c5fd; }
+.pw-meter .bar.on:nth-child(2) { background: #60a5fa; }
+.pw-meter .bar.on:nth-child(3) { background: #4f46e5; }
+.pw-meter .bar.on:nth-child(4) { background: #06b6d4; }
+
+.hint {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #64748b;
+}
+
+/* Error alert */
+.alert {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  color: #991b1b;
+  background: #fee2e2;
+  border: 1px solid #fecaca;
+  font-weight: 600;
+}
+
+.btn.ghost {
+  color: #0f172a;
+  background: #ffffff;
+  border: 1px solid #e8ecff;
+  box-shadow: 0 6px 18px rgba(2, 6, 23, 0.04);
+}
+.btn.ghost:hover { transform: translateY(-2px); }
+
+.spinner {
+  width: 14px; height: 14px; border-radius: 50%;
+  border: 2px solid rgba(255,255,255,.6);
+  border-top-color: #fff;
+  display: inline-block;
+  animation: spin .8s linear infinite;
+  margin-right: 6px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Terms */
+.terms {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 12px;
+  color: #475569;
+}
+.terms a { color: #0f172a; text-decoration: none; }
+.terms a:hover { text-decoration: underline; }
+
+/* Responsive */
+@media (max-width: 520px) {
+  .auth-card { padding: 20px; }
+  .actions { flex-direction: column; gap: 8px; }
+  .btn { width: 100%; justify-content: center; }
+  .auth-card{zoom:0.9}
+}
+@media (max-width: 420px) {
+    .auth-card{zoom:0.8}
+}
+@media (max-width: 370px) {
+    .auth-card{zoom:0.7}
+}

@@ -1,0 +1,156 @@
+.sidepanel-container {
+  width: 280px;
+  height: 100vh;
+  background-color: #ffffff;
+  border-right: 1px solid #e0e0e0;
+  padding:20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.sidepanel-container ul {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+.sidepanel-container li {
+  margin-bottom: 10px;
+}
+
+.sidepanel-container button {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  text-align: left;
+  padding: 10px 15px;
+  font-size: 16px;
+  font-family: 'Poppins';
+  font-weight: light;
+  color: #333;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.sidepanel-container button:hover {
+  background-color: #f0f0f0;
+  color: #000;
+}
+
+.sidepanel-container button:focus {
+  outline: none;
+  background-color: #e0e0e0;
+}
+
+.category-label {
+  background-color: #f5f5f5;
+  color: #333;
+  padding:10px;
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: light;
+  font-family: 'Poppins';
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  text-align: left;
+  border: none;
+  width: 100%;
+}
+
+.category-label:hover {
+  background-color: #e0e0e0;
+  transform: translateX(5px);
+}
+
+.logo-container{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap:2px;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+/* Heartbeat + Spin for Logo */
+.sidepanel-container img {
+  width: 45px;
+  object-fit: contain;
+}
+
+@keyframes heartbeatExplosion {
+  0% { transform: scale(1) rotate(0deg); }
+  2% {transform: scale(1.05) rotate(0deg);}
+  4% { transform: scale(1) rotate(0deg); }
+  8% { transform: scale(1.05) rotate(0deg); }
+  10% {transform: scale(1) rotate(0deg);}
+  12% { transform: scale(1.05) rotate(0deg); }
+  16% { transform: scale(1) rotate(0deg); }
+  18% {transform: scale(1.05) rotate(0deg);}
+  19% {transform: scale(1) rotate(0deg);}
+  20% { transform: scale(1.2) rotate(0deg); }
+  21% {transform: scale(1) rotate(0deg);}
+  22% { transform: scale(1.25) rotate(180deg); }
+  24% { transform: scale(1.15) rotate(360deg); }
+  28% { transform: scale(1.05) rotate(370deg); }
+  32% { transform: scale(1) rotate(360deg); }
+  100% { transform: scale(1) rotate(360deg); }
+}
+
+/* Text Explosion */
+.logo-container p {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 28px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+  position: relative;
+  letter-spacing: 2px;
+}
+
+@keyframes textExplosion {
+  0%, 16% { transform: scale(1); letter-spacing: 2px; filter: brightness(1); }
+  20% { transform: scale(1.15); letter-spacing: 15px; filter: brightness(2) drop-shadow(0 0 15px rgba(118,75,162,0.8)); }
+  24% { transform: scale(1.05); letter-spacing: -1px; }
+  28% { transform: scale(1.02); letter-spacing: 3px; }
+  32%, 100% { transform: scale(1); letter-spacing: 2px; filter: brightness(1); }
+}
+
+/* Shine Sweep */
+.logo-container p::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0) 100%);
+  animation: shineSweep 10s ease-in-out infinite;
+}
+
+@keyframes shineSweep {
+  0%, 16% { left: -75%; }
+  20% { left: 125%; }
+   30%{ left: -75%; }
+  40% { left: 125%; }
+  100% { left: 125%; }
+}
+
+.admin-sidebar.active .sidepanel-container img {
+  animation: heartbeatExplosion 8s ease-in-out 1; /* plays once */
+}
+
+.admin-sidebar.active .sidepanel-container .logo-container p {
+  animation: textExplosion 8s ease-out 1; /* plays once */
+}
+@media only screen and(max-width:550px){
+  .sidepanel-container{
+    width: 250px;
+  }
+}
