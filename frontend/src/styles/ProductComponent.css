@@ -215,3 +215,228 @@
     align-self: center;
   }
 }
+@media (max-width: 1200px) {
+  .product {
+    width: 95%;
+    gap: 16px;
+    padding: 18px;
+  }
+  .productimages img {
+    width: 380px;
+    max-height: 420px;
+  }
+  .productdetails {
+    font-size: 18px;
+  }
+  .img-element {
+    width: 56px;
+    height: 60px;
+  }
+  .reviews-list {
+    width: 95%;
+  }
+}
+
+/* --- Tablets (landscape) --- */
+@media (max-width: 992px) {
+  .product {
+    gap: 16px;
+  }
+  .productimages img {
+    width: 340px;
+    max-height: 380px;
+  }
+  .productdetails {
+    width: 55%;
+    font-size: 17px;
+  }
+  .description {
+    font-size: 15px;
+  }
+  .reviews-title {
+    font-size: 22px;
+  }
+}
+
+/* --- Tablets (portrait) & small screens --- */
+@media (max-width: 768px) {
+  .ProductComponent {
+    gap: 16px;
+    padding-bottom: 16px;
+  }
+
+  .product {
+    margin-top: 16px;
+    flex-direction: column;
+    align-items: stretch;
+    width: 95%;
+    gap: 14px;
+    padding: 16px;
+  }
+
+  .productimages {
+    width: 100%;
+  }
+  .productimages img {
+    width: 100%;
+    max-height: 360px;
+    object-fit: cover;
+  }
+
+  .productdetails {
+    width: 100%;
+    font-size: 16px;
+    padding-right: 0;
+  }
+  .description {
+    font-size: 14px;
+  }
+
+  .image-array-contanier {
+    justify-content: flex-start;
+    overflow-x: auto;
+    gap: 8px;
+    padding-bottom: 6px;
+  }
+  .image-array-contanier::-webkit-scrollbar {
+    height: 6px;
+  }
+  .image-array-contanier::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+  }
+  .img-element {
+    width: 54px;
+    height: 54px;
+    flex: 0 0 auto;
+  }
+
+  .customer-reviews-container {
+    width: 95%;
+    padding: 16px;
+    border-radius: 12px;
+  }
+  .reviews-title {
+    font-size: 20px;
+  }
+  .reviews-list {
+    width: 100%;
+  }
+
+  .review-card {
+    border-radius: 12px;
+  }
+  .review-card p {
+    font-size: 13.5px;
+  }
+
+  .rev-prev, .rev-next {
+    top: 42%;
+    padding: 6px 9px;
+  }
+}
+
+/* --- Phones --- */
+@media (max-width: 576px) {
+  .product {
+    padding: 14px;
+    gap: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+  }
+
+  .productimages img {
+    max-height: 300px;
+  }
+
+  .productdetails {
+    font-size: 15px;
+    gap: 8px;
+  }
+  .productdetails p { margin: 2px 0; }
+  .description { font-size: 13.5px; }
+
+  .rating-buttons i {
+    font-size: 16px;
+  }
+
+  .img-element {
+    width: 50px;
+    height: 50px;
+  }
+
+  .reviews-title {
+    font-size: 18px;
+  }
+  .review-card {
+    padding: 10px 12px;
+  }
+
+  .avatar {
+    font-size: 20px;
+    padding: 6px 10px;
+  }
+
+  .rev-prev, .rev-next {
+    top: auto;
+    bottom: -8px;
+    transform: none;
+    padding: 6px 8px;
+  }
+  .rev-prev { left: 6px; }
+  .rev-next { right: 6px; }
+}
+
+/* --- Small phones --- */
+@media (max-width: 400px) {
+  .product {
+    width: 100%;
+    border-radius: 8px;
+    padding: 12px;
+  }
+  .productimages img {
+    max-height: 240px;
+    border-radius: 8px;
+  }
+  .productdetails {
+    font-size: 14px;
+  }
+  .description {
+    font-size: 13px;
+  }
+  .img-element {
+    width: 46px;
+    height: 46px;
+  }
+  .review-card p {
+    font-size: 13px;
+  }
+}
+
+/* --- Optional polish / states --- */
+@media (hover: hover) {
+  .img-element:hover {
+    transform: scale(1.06);
+  }
+}
+.rev-prev:disabled, .rev-next:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Missing class in your CSS that your JSX uses */
+.no-reviews-card {
+  padding: 24px;
+  text-align: center;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+.no-reviews-title {
+  font-weight: 600;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.no-reviews-sub {
+  color: #555;
+  font-size: 14px;
+}

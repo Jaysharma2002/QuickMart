@@ -44,18 +44,6 @@ function Login({ setUserId }) {
   }
 
   useEffect(() => {
-  axios.get("https://quickmartproject-backend.onrender.com/api/product/userprofile", { withCredentials: true })
-    .then(res => {
-      if (res.data?.user) {
-        setUserId(res.data.user._id);
-        navigate("/home");
-      }
-    })
-    .catch(() => {}); 
-}, []);
-
-
-  useEffect(() => {
     if (incorrect) {
       const t = setTimeout(() => setIncorrect(false), 1200);
       return () => clearTimeout(t);
