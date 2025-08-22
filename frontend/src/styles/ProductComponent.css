@@ -220,9 +220,6 @@
     gap: 16px;
     padding: 18px;
   }
-  .productimages img {
-    max-height: 420px;
-  }
   .productdetails {
     font-size: 18px;
   }
@@ -239,9 +236,6 @@
 @media (max-width: 992px) {
   .product {
     gap: 16px;
-  }
-  .productimages img {
-    max-height: 380px;
   }
   .productdetails {
     align-items:normal ;
@@ -277,9 +271,6 @@
 
   .productimages {
     width: 100%;
-  }
-  .productimages img {
-    max-height: 360px;
   }
 
   .productdetails {
@@ -341,7 +332,8 @@
   }
 
   .productimages img {
-    max-height: 300px;
+    width: fit-content;
+    max-height: 360px;
   }
 
   .productdetails {
