@@ -351,6 +351,27 @@
   .add i,.outofstock i{font-size: 14px;}
 }
 
+@media (max-width: 365px){
+  :root{
+    --card-min: 90px;    
+    --img-h: clamp(70px, 18vw, 110px);
+    --card-padding: 4px;
+    --gap: 6px;
+    --head-size: clamp(.6rem, 3.8vw, .75rem);
+    --desc-size: clamp(.55rem, 3.4vw, .7rem);
+    --btn-size: .7rem;
+    --icon-size: 10px;
+  }
+  .card { 
+    min-height: 190px; 
+    border-radius: 6px; 
+  }
+  .add, .outofstock {
+    padding: 4px 6px;
+    min-height: 28px;
+  }
+}
+
 @media (max-width: 479px){
   :root{
     --card-min: 100px;
