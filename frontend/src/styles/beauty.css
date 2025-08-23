@@ -45,10 +45,11 @@
   max-width: 1400px;
   margin: 0 auto;
   padding: clamp(12px, 2.5vw, 24px);
-  display: grid;
 
-  grid-template-columns: repeat(auto-fit, minmax(var(--card-min), 1fr));
-  gap: var(--gap-lg);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(var(--card-min), 1fr));
+  gap: var(--gap);
+  align-items: start;
 
   padding-left: calc( clamp(12px,2vw,24px) + env(safe-area-inset-left) );
   padding-right: calc( clamp(12px,2vw,24px) + env(safe-area-inset-right) );
@@ -64,7 +65,8 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
-  min-height: 380px;                
+  width: 100%;
+  min-height: 0;                
   transition: transform .18s ease, box-shadow .18s ease;
 }
 
@@ -293,72 +295,68 @@
 }
 
 @media (min-width: 1440px){
-  :root{ --card-min: 300px; --img-h-desktop: 320px; --card-padding: 18px; }
-  .content { gap: 28px; }
+  :root{
+    --card-min: 300px;
+    --img-h: 320px;
+    --card-padding: 18px;
+    --gap: 28px;
+    --head-size: 1.05rem;
+  }
 }
 
 @media (min-width: 1024px) and (max-width: 1439px){
-  :root{ --card-min: 260px; --img-h-desktop: 300px; --card-padding: 16px; }
-  .content { gap: 24px; }
+  :root{
+    --card-min: 260px;
+    --img-h: 300px;
+    --card-padding: 16px;
+    --gap: 24px;
+    --head-size: clamp(.9rem, 1.1vw, 1rem);
+  }
 }
 
 @media (min-width: 700px) and (max-width: 1023px){
-  :root{ --card-min: 200px; }       
-  .content { gap: 18px; padding: 14px; }
-  .img-container { height: var(--img-h-tablet); }
-  :root{ --img-h-tablet: 220px; }
-  .head { font-size: .98rem; } 
-  .desc { font-size: .92rem; -webkit-line-clamp: 2; }
-  .add,.outofstock{font-size: 14px;}
+  :root{
+    --card-min: 180px;
+    --img-h: clamp(140px, 20vw, 220px);
+    --card-padding: 12px;
+    --gap: 18px;
+    --head-size: clamp(.86rem, 1.2vw, .98rem);
+    --desc-size: clamp(.78rem, 1vw, .92rem);
+  }
 }
 
 @media (min-width: 480px) and (max-width: 699px){
-  :root{ --card-min: 160px; }      
-  .content { gap: 12px; padding: 12px; }
-  .img-container { height: 180px; }
-  .card { min-height: 340px; padding: 12px; }
-  .head { font-size: .95rem; }
-  .desc { font-size: .9rem; -webkit-line-clamp: 2; }
-  .add { min-height: 40px; padding: 8px 10px; font-size: .9rem; }
-  .add i,.outofstock i{font-size: 14px;}
+  :root{
+    --card-min: 140px;
+    --img-h: 160px;
+    --card-padding: 10px;
+    --gap: 12px;
+    --head-size: clamp(.8rem, 2.2vw, .95rem);
+    --desc-size: clamp(.76rem, 2vw, .9rem);
+    --btn-size: .9rem;
+  }
+  .card { min-height: 300px; }
 }
 
-@media (max-width: 527px){
-  :root{ --card-min: 110px; }   
-  .content { gap: 8px; padding: 8px; }
-  .img-container { height: 120px; }
-  .card { min-height: 260px; padding: 8px; border-radius: 8px; }
-  .head { font-size: .85rem; }
-  .desc { font-size: .78rem; -webkit-line-clamp: 2; }
-  .add { min-height: 36px; padding: 6px 8px; font-size: .82rem; }
-  .add i,.outofstock i{font-size: 12px;}
+@media (max-width: 479px){
+  :root{
+    --card-min: 100px;        
+    --img-h: clamp(80px, 18vw, 140px);
+    --card-padding: 6px;
+    --gap: 8px;
+    --head-size: clamp(.68rem, 3.6vw, .85rem);
+    --desc-size: clamp(.64rem, 3vw, .78rem);
+    --btn-size: .78rem;
+    --icon-size: 12px;
+  }
+  .card { min-height: 220px; border-radius: 8px; }
 }
 
 @media (min-width: 527px) and (max-width: 610px){
-  .add i,.outofstock i{font-size: 10px;}
-  .add,.outofstock{padding:10px 5px;}
+  :root{ --icon-size: 10px; }
+  .add, .outofstock { padding: 10px 5px; }
 }
 
-@media (min-width: 1440px) {
-  .content { gap: 32px; }
-  .img-container { height: clamp(260px, 24vh, 320px); }
-  .desc { -webkit-line-clamp: 2; }
-}
-@media (max-width: 768px) {
-  .slideimage {
-    max-height: 280px;
-  }
-  .prev, .next {
-    font-size: 20px;
-    padding: 8px 12px;
-  }
-}@media (max-width: 480px) {
-  .slideimage {
-    max-height: 220px;
-    border-radius: 12px;
-  }
-  .prev, .next {
-    font-size: 18px;
-    padding: 6px 10px;
-  }
+@media (min-width: 1600px){
+  :root{ --img-h: clamp(260px, 18vh, 360px); }
 }
