@@ -333,6 +333,10 @@
   .add { min-height: 36px; padding: 6px 8px; font-size: .82rem; }
 }
 
+@media (min-width: 527px) and (max-width: 610px){
+  .add i,.outofstock i{font-size: 12px;}
+  .add,.outofstock{padding:10px 8px;}
+}
 
 @media (min-width: 1440px) {
   .content { gap: 32px; }
