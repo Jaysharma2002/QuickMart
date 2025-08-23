@@ -323,7 +323,7 @@
   .add i,.outofstock i{font-size: 14px;}
 }
 
-@media (max-width: 479px){
+@media (max-width: 527px){
   :root{ --card-min: 110px; }   
   .content { gap: 8px; padding: 8px; }
   .img-container { height: 120px; }
@@ -331,11 +331,12 @@
   .head { font-size: .85rem; }
   .desc { font-size: .78rem; -webkit-line-clamp: 2; }
   .add { min-height: 36px; padding: 6px 8px; font-size: .82rem; }
+  .add i,.outofstock i{font-size: 12px;}
 }
 
 @media (min-width: 527px) and (max-width: 610px){
-  .add i,.outofstock i{font-size: 12px;}
-  .add,.outofstock{padding:10px 8px;}
+  .add i,.outofstock i{font-size: 10px;}
+  .add,.outofstock{padding:10px 5px;}
 }
 
 @media (min-width: 1440px) {
