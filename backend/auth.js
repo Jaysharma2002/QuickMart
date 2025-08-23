@@ -10,11 +10,11 @@ router.get("/google", passport.authenticate("google", { scope: ["profile", "emai
 // Google callback
 router.get(
   "/google/callback",
-  passport.authenticate("google", { failureRedirect: "https://quickmartproject.onrender.com/" }),
+  passport.authenticate("google", { failureRedirect: "https://ecommerce-web-app-in-mern.onrender.com/" }),
   (req, res) => {
     req.session.userId = req.user._id;
     req.session.save(() => {
-      res.redirect("https://quickmartproject.onrender.com/home");
+      res.redirect("https://ecommerce-web-app-in-mern.onrender.com/home");
     });
   }
 );

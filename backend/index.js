@@ -18,12 +18,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use(cors({
-  origin: "https://quickmartproject.onrender.com",
+  origin: "https://ecommerce-web-app-in-mern.onrender.com",
   credentials: true,
 }));
 
 app.options("*", cors({
-    origin: 'https://quickmartproject.onrender.com',
+    origin: 'https://ecommerce-web-app-in-mern.onrender.com',
     credentials: true,
 }));
 
