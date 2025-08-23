@@ -106,9 +106,9 @@ function Beauty({selectedcategory,setProducts,searchedProduct,setAddedtocart,add
                 <p className='textsummer'>{e.title}</p>
                 <p>₹{e.price}</p>
                 {e.sizes[0].quantity>0?(
-                    <button className="add" onClick={(event)=>{event.stopPropagation();addtocart(e)}}><i className="fa-solid fa-cart-plus"><span>Add to Cart</span></i></button>
+                    <button className="add" onClick={(event)=>{event.stopPropagation();addtocart(e)}}><i className="fa-solid fa-cart-plus"><span> Add to Cart</span></i></button>
                 ):(
-                    <button className="outofstock" disabled={true}><i className="fa-solid fa-cart-plus"><span>Out Of Stock</span></i></button>
+                    <button className="outofstock" disabled={true}><i className="fa-solid fa-cart-plus"><span> Out Of Stock</span></i></button>
                 )}
             </div>)):(<h1 className='no-product-tagline'>!! No Product Found</h1>)}
         </div>
