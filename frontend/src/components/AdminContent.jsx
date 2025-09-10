@@ -351,7 +351,7 @@ function AdminContent({selectedCategory,searchProduct,outOfStock}){
                         const updatedSizes = [...newProduct.sizes];
                         updatedSizes.splice(index, 1);
                         setNewProduct((prev) => ({ ...prev, sizes: updatedSizes }));
-                    }} disabled={newProduct.sizes.length === 1} className="remove-btn">Remove</button>
+                    }} disabled={newProduct.sizes.length === 1} className="remove-btn"><i className="fa-regular fa-circle-xmark"></i></button>
 
                 </div>
                 ))}
