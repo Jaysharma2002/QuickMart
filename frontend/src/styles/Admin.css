@@ -110,6 +110,7 @@ button{
     cursor: pointer;
 }
 .popup {
+    display: none;
     background: rgb(255, 255, 255); /* Dark semi-transparent for modern look */
     backdrop-filter: blur(12px); /* Glassmorphism effect */
     align-items: center;
@@ -135,6 +136,7 @@ button{
 }
 
 .popup.visible {
+display: flex;
   animation: popupAppear 350ms ease-out forwards;
 }
 
@@ -152,7 +154,7 @@ button{
 
 /* keyframes */
 @keyframes popupAppear {
-  0% { display:flex;opacity: 0; transform: translate(-50%, -10%) scale(0.96); }
+  0% { opacity: 0; transform: translate(-50%, -10%) scale(0.96); }
   100% { opacity: 1; transform: translate(-50%, 0) scale(1); }
 }
 @keyframes popupDisappear {
