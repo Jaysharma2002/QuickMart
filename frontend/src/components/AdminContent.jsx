@@ -358,11 +358,13 @@ function AdminContent({selectedCategory,searchProduct,outOfStock}){
 
 
 
-            <button onClick={() =>
-                setNewProduct((prev) => ({
-                    ...prev,
-                    sizes: [...prev.sizes, { size: "", inStock: true, quantity: 1 }],
-                }))} className="add-btn">Add Size</button>
+            <div className="add-size-container">
+                <button onClick={() =>
+                    setNewProduct((prev) => ({
+                        ...prev,
+                        sizes: [...prev.sizes, { size: "", inStock: true, quantity: 1 }],
+                    }))} className="add-btn">Add Size</button>
+            </div>
 
             <div className="popbuttons">
                 <div className={`disableadd ${onChange?'visible':'hidden'}`}>

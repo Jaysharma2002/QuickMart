@@ -112,10 +112,7 @@ button{
 .popup {
     background: rgb(255, 255, 255); /* Dark semi-transparent for modern look */
     backdrop-filter: blur(12px); /* Glassmorphism effect */
-    flex-direction: column !important;
-    justify-content: flex-start !important;
     align-items: center;
-    gap: 20px !important;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     position: fixed;
@@ -130,6 +127,13 @@ button{
     overflow-y: auto;
     overflow-x: hidden;
 }
+
+.add-size-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
 .popup.visible {
   animation: popupAppear 350ms ease-out forwards;
 }
@@ -242,7 +246,6 @@ button{
     justify-content: center;
     align-items: center;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.7);
-    width: 90%;
     padding:15px 30px;
     gap:10px;
     border-radius: 10px;
@@ -254,7 +257,6 @@ button{
   border-radius: 8px;
   cursor: pointer;
   font-size: 14px;
-  margin-left: 10px;
   font-weight: 500;
   letter-spacing: 0.5px;
   transition: all 0.3s ease;
