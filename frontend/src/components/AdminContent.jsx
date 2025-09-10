@@ -261,7 +261,7 @@ function AdminContent({selectedCategory,searchProduct,outOfStock}){
         <div className={`popup ${isVisible ? 'visible' : hasInteracted ? 'hidden' : 'initialhide'}`}  ref={refPopup}>
             <input type="text" name="title" value={newProduct.title} onChange={handleInput} placeholder="Product Name"></input>
             <div className="images-editor">
-            <h3>Images</h3>
+            <h3 style={{padding:0,margin:0}}>Images</h3>
 
             <div className="images-grid">
                 {Array.isArray(newProduct.images) && newProduct.images.filter(Boolean).length > 0 ? (
@@ -298,7 +298,7 @@ function AdminContent({selectedCategory,searchProduct,outOfStock}){
             <input type="text" name="price" value={newProduct.price} onChange={handleInput} placeholder="Product Price"></input>
             <input type="text" name="quantity" value={newProduct.quantity} onChange={handleInput} placeholder="Product Quantity"></input>
             <input type="text" name="category" value={newProduct.category} onChange={handleInput} placeholder="Product Category"></input>
-            <h3>Sizes</h3>
+            <h3 style={{padding:0,margin:0}}>Sizes</h3>
             {newProduct?.sizes?.map((sizeObj, index) => (
                 <div key={index} className="size-row">
                     {/* Size Text Input */}

@@ -114,8 +114,7 @@ button{
     background: rgb(255, 255, 255); /* Dark semi-transparent for modern look */
     backdrop-filter: blur(12px); /* Glassmorphism effect */
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    gap:10px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     position: fixed;
@@ -134,7 +133,6 @@ button{
 .add-size-container {
     display: flex;
     justify-content: center;
-    margin: 20px 0;
 }
 
 .popup.visible {
