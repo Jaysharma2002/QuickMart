@@ -267,14 +267,13 @@ display: flex;
 .remove-btn {
     border-radius: 50%;
     color:rgb(239, 68, 68);
-  border: none;
-  background: none;
-  cursor: pointer;
-  font-family: 'Poppins';
-  font-size: 14px;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-family: 'Poppins';
+    font-size: 18px;
+    font-weight: 500;
+    transition: all 0.3s ease;
 }
 
 /* Add Button */
@@ -288,15 +287,8 @@ display: flex;
   box-shadow: 0 6px 12px rgba(30, 136, 229, 0.3);
 }
 
-/* Remove Button */
-.remove-btn {
-  background: linear-gradient(135deg, #ef5350, #d32f2f);
-}
-
 .remove-btn:hover {
-  background: linear-gradient(135deg, #d32f2f, #b71c1c);
   transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(211, 47, 47, 0.3);
 }
 
 .filter-product-buttons{
