@@ -112,11 +112,10 @@ button{
 .popup {
     background: rgb(255, 255, 255); /* Dark semi-transparent for modern look */
     backdrop-filter: blur(12px); /* Glassmorphism effect */
-    flex-direction: column;
-    justify-content: flex-start;
-    display: flex;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
     align-items: center;
-    gap: 20px;
+    gap: 20px !important;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     position: fixed;
